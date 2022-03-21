@@ -7,7 +7,7 @@ class customer(models.Model):
     email=models.CharField(max_length=200,null=True)
     phone=models.CharField(max_length=200,null=True)
     password_en=models.CharField(max_length=200,null=True)
-    #passwords = models.CharField(max_length=200)
+    ##passwords = models.CharField(max_length=200)
     date_created=models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
