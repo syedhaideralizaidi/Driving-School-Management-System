@@ -11,7 +11,9 @@ def register(request):
 
 def login(request):
     if request.method=='POST':
-        form=AuthenticationForm()
+        form=AuthenticationForm(data=request.POST)
+        if form.is_valid():
+            return render(request, 'accounts/home.html')
     else:
         form=AuthenticationForm()
 
