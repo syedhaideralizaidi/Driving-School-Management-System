@@ -1,7 +1,258 @@
-{% extends 'accounts/main.html' %}
 
-{% block content %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <h1> Dashboard Here!</h1>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Sync is a landing page HTML template built with Bootstrap 4 for presenting mobile apps to the online audience and for getting visitors to become users.">
+    <meta name="author" content="Inovatik">
 
-    {% endblock %}
+    <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
+	<meta property="og:site_name" content="" /> <!-- website name -->
+	<meta property="og:site" content="" /> <!-- website link -->
+	<meta property="og:title" content=""/> <!-- title shown in the actual shared post -->
+	<meta property="og:description" content="" /> <!-- description shown in the actual shared post -->
+	<meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
+	<meta property="og:url" content="" /> <!-- where do you want your post to link to -->
+	<meta property="og:type" content="article" />
+
+    <!-- Webpage Title -->
+    <title>Sync - Mobile App Landing Page HTML Template</title>
+
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
+    <link href="{% static '/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static '/css/fontawesome-all.css' %}" rel="stylesheet">
+    <link href="{% static '/css/swiper.css' %}" rel="stylesheet">
+	<link href="{% static '/css/magnific-popup.css' %}" rel="stylesheet">
+	<link href="{% static '/css/styles1.css' %}" rel="stylesheet">
+
+	<!-- Favicon  -->
+    <link rel="icon" href="{% static '/images/favicon.png' %}">
+</head>
+<body data-spy="scroll" data-target=".fixed-top">
+
+    <!-- Preloader
+	<div class="spinner-wrapper">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+     end of preloader -->
+
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <div class="container">
+            <!-- Text Logo - Use this if you don't have a graphic logo -->
+            <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Sync</a> -->
+
+            <!-- Image Logo -->
+            <!--a class="navbar-brand logo-image" href="index.html"><img src="images/SchoolLogo.png" alt="alternative"></a>-->
+
+            <!-- Mobile Menu Toggle Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-awesome fas fa-bars"></span>
+                <span class="navbar-toggler-awesome fas fa-times"></span>
+            </button>
+            <!-- end of mobile menu toggle button -->
+
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="{% url 'home' %}">HOME <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="{% url 'login' %}">LOGIN</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="{% url 'register' %}">SIGNUP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#Guide">GUIDE</a>
+                    </li>
+
+                    <!-- Dropdown Menu
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle page-scroll" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">EXTRA</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="article-details.html"><span class="item-text">ARTICLE DETAILS</span></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="terms-conditions.html"><span class="item-text">TERMS CONDITIONS</span></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="privacy-policy.html"><span class="item-text">PRIVACY POLICY</span></a>
+                        </div>
+                    </li>
+                     end of dropdown menu -->
+                </ul>
+                <span class="nav-item">
+                    <a class="btn-outline-sm page-scroll" href="https://github.com/syedhaideralizaidi/Driving-School-Management-System.git">GITHUB</a>
+                </span>
+            </div>
+        </div> <!-- end of container -->
+    </nav> <!-- end of navbar -->
+    <!-- end of navigation -->
+
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-container">
+                        <h1>Driving School Management System</h1>
+                        <p class="p-large p-heading">We help you to learn driving under the supervision and guidance of our trained and experienced instructors</p>
+
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="image-container">
+                        <img class="img-fluid" src="{% static '/images/cone.jpg' %}" alt="alternative">
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+        <div class="deco-white-circle-1">
+            <img src="{% static '/images/decorative-white-circle.svg' %}" alt="alternative">
+        </div> <!-- end of deco-white-circle-1 -->
+        <div class="deco-white-circle-2">
+            <img src="{% static '/images/decorative-white-circle.svg' %}" alt="alternative">
+        </div> <!-- end of deco-white-circle-2 -->
+        <div class="deco-blue-circle">
+            <img src="{% static '/images/decorative-blue-circle.svg' %}" alt="alternative">
+        </div> <!-- end of deco-blue-circle -->
+        <div class="deco-yellow-circle">
+            <img src="{% static '/images/decorative-yellow-circle.svg' %}" alt="alternative">
+        </div> <!-- end of deco-yellow-circle -->
+        <div class="deco-green-diamond">
+            <img src="{% static '/images/decorative-green-diamond.svg' %}" alt="alternative">
+        </div> <!-- end of deco-yellow-circle -->
+    </header> <!-- end of header -->
+    <!-- end of header -->
+
+
+    <!-- Small Features -->
+    <div class="cards-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <!-- Card -->
+                    <div class="card">
+                        <div class="card-image">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Identify Goals</h5>
+                        </div>
+                    </div>
+                    <!-- end of card -->
+
+                    <!-- Card -->
+                    <div class="card">
+                        <div class="card-image green">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Situation Analysis</h5>
+                        </div>
+                    </div>
+                    <!-- end of card -->
+
+                    <!-- Card -->
+                    <div class="card">
+                        <div class="card-image red">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Tasks Settings</h5>
+                        </div>
+                    </div>
+                    <!-- end of card -->
+
+                    <!-- Card -->
+                    <div class="card">
+                        <div class="card-image yellow">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Social Interaction</h5>
+                        </div>
+                    </div>
+                    <!-- end of card -->
+
+                    <!-- Card -->
+                    <div class="card">
+                        <div class="card-image blue">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Get Things Done</h5>
+                        </div>
+                    </div>
+                    <!-- end of card -->
+
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of cards-1 -->
+    <!-- end of small features -->
+
+
+    <!-- Description 1 -->
+    <div id="Guide" class="basic-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="image-container">
+                        <img class="img-fluid" src="{% static '/images/mobilePic.png' %}" alt="alternative">
+                    </div> <!-- end of image-container -->
+                </div> <!-- end of col -->
+                <div class="col-lg-6">
+                    <div class="text-container">
+                        <h2>Get Started</h2>
+                        <p>With our web application your driving school is one click away</p>
+                        <ul class="list-unstyled li-space-lg">
+                            <li class="media">
+                                <i class="fas fa-square"></i>
+                                <div class="media-body">Register yourself</div>
+                            </li>
+                            <li class="media">
+                                <i class="fas fa-square"></i>
+                                <div class="media-body">Login to your account</div>
+                            </li>
+                            <li class="media">
+                                <i class="fas fa-square"></i>
+                                <div class="media-body">Select your plan and begin learning</div>
+                            </li>
+                        </ul>
+                        <a class="btn-solid-reg popup-with-move-anim" href="#description-1-details-lightbox">REGISTER</a>
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of basic-1 -->
+    <!-- end of description 1 -->
+
+
+
+
+
+    <!-- Scripts -->
+    <script src="{% static '/js/jquery.min.js' %}"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="{% static '/js/popper.min.js' %}"></script> <!-- Popper tooltip library for Bootstrap -->
+    <script src="{% static '/js/bootstrap.min.js' %}"></script> <!-- Bootstrap framework -->
+    <script src="{% static '/js/jquery.easing.min.js' %}"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
+    <script src="{% static '/js/swiper.min.js' %}"></script> <!-- Swiper for image and text sliders -->
+    <script src="{% static '/js/jquery.magnific-popup.js' %}"></script> <!-- Magnific Popup for lightboxes -->
+    <script src="{% static '/js/validator.min.js' %}"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
+    <script src="{% static '/js/scripts.js' %}"></script> <!-- Custom scripts -->
+</body>
+</html>
