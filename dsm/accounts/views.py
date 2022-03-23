@@ -1,12 +1,15 @@
 from django.shortcuts import render
+from django.template import RequestContext
 from django.http import HttpResponse
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login,logout
+from django.contrib.auth import login as authLogin,logout
 from .models import customer
 # Create your views here.
 
 def home(request):
-    return render(request,'accounts/home.html')
+    entries = customer.objects.all()
+    context = {"entries": entries}
+    return render(request,'accounts/home.html',{})
 
 def register(request):
     return render(request,'accounts/register.html')
@@ -19,8 +22,12 @@ def login(request):
         if form:
             #print('hellllllllllllldsjdbjad\n')
             #if form.is_active:
-                #login(request,form)
-            return render(request, 'accounts/MainPage.html')
+            authLogin(request,form)
+            entries = customer.objects.all()
+            print(f"Username --> {request.user.name}")
+            context = {'foo': 'bar'}
+
+            return render(request, 'accounts/MainPage.html',{})
     else:
         form=AuthenticationForm()
 
@@ -56,3 +63,6 @@ def check_password(password1,password2):
         return True
     else:
         return False
+
+def getCurrentUserName(request):
+    return {request.user.name}
