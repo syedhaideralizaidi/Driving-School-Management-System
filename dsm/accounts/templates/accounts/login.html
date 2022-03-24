@@ -9,7 +9,9 @@
 
     <div id="content-container" class="container p-none" style="margin-top:200px">
         <div class="lgn-container col-lg-8">
-            <form id="login-form" method="post"
+            <h1>Login</h1>
+    <p>Please login to continue.</p>
+            <form id="login-form" class=".container" method="post"
                   action="{% url 'login' %}",>
                 {% csrf_token %}
                 <table class="table">

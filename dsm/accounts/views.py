@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as authLogin,logout
 from .models import customer
+from django import forms
 # Create your views here.
 
 def home(request):
@@ -28,6 +29,8 @@ def login(request):
             context = {'foo': 'bar'}
 
             return render(request, 'accounts/MainPage.html',{})
+        #else:
+            #print(forms.ValidationError);
     else:
         form=AuthenticationForm()
 
@@ -37,7 +40,7 @@ def login(request):
 def myauthenticate( username=None, password=None):
 
     try:
-            # Try to find a user matching your username
+
         user = customer.objects.get(name=username)
 
             #  Check the password is the reverse of the username
