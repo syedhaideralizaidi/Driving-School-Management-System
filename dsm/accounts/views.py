@@ -6,6 +6,20 @@ from django.contrib.auth import login as authLogin,logout
 from .models import customer
 from django import forms
 # Create your views here.
+from .forms import MyForm
+
+from django import forms
+from django import forms
+# Create your views here.
+
+def my_form(request):
+    if request.method == "POST":
+        form = MyForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = MyForm()
+    return render(request, 'accounts/register.html', {'form': form})
 
 def home(request):
     entries = customer.objects.all()
@@ -13,8 +27,9 @@ def home(request):
     return render(request,'accounts/home.html',{})
 
 def register(request):
-    return render(request,'accounts/register.html')
-
+    context = {}
+    context['form'] = InputForm()
+    return render(request, "accounts/register.html", context)
 def login(request):
     if request.method=='POST':
         username=request.POST.get('username')
