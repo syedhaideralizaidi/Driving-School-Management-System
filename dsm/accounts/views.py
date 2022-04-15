@@ -40,7 +40,7 @@ def login(request):
             #if form.is_active:
             authLogin(request,form)
             entries = customer.objects.all()
-            print(f"Username --> {request.user.name}")
+            #print(f"Username --> {request.user.customer_uuid}")
             context = {'foo': 'bar'}
 
             return render(request, 'accounts/MainPage.html',{})
@@ -70,11 +70,11 @@ def myauthenticate( username=None, password=None):
         return None
 
     # Required for your backend to work properly - unchanged in most scenarios
-def get_user(self, user_id):
+'''def get_user(self, user_id):
     try:
         return customer.objects.get(pk=user_id)
     except customer.DoesNotExist:
-        return None
+        return None'''
 
 def check_password(password1,password2):
     if password2==password1:
