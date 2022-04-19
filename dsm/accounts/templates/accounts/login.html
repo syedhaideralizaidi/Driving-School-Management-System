@@ -26,14 +26,24 @@
                                    type="password" class="form-control"></td>
                     </tr>
                 </table>
+                {% for message in messages %}
+
+                    <div class="alert alert-success alert-dismissible fade show">
+                    <strong>Error! </strong>Incorrect user name or password
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+
+                {% endfor %}
                 {% if form.errors %}
                     <p class=" label label-danger">
                         Your username and password didn't match.
                         Please try again.
                     </p>
                 {% endif %}
-
-                <input type="submit" value="Login"
+                <input type="submit" name="instructor" value="Instructor"
+                       class="btn btn-primary pull-right" />
+                <input type="hidden" name="next" value="{{ next }}" />
+                <input type="submit" name="student" value="Login"
                        class="btn btn-primary pull-right" />
                 <input type="hidden" name="next" value="{{ next }}" />
             </form>

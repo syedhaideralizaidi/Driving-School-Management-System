@@ -11,6 +11,8 @@
 		
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="{% static '/css/style.css' %}">
+          <link href="{% static '/css/bootstrap.css' %}" rel="stylesheet">
+
   </head>
   <body>
 		
@@ -19,9 +21,18 @@
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
 
-        <h2 class="mb-4">Welcome Back {{user.name}}</h2>
+        <h2 class="mb-4">Welcome {{user.name}}</h2>
           <hr>
-        <h3>Select a plan to begin learning </h3>
+        <!--h3>Select a plan to begin learning </h3-->
+        {% if user.isRegistered is False%}
+          <form action="{% url 'planSelection' %}" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="hidden" name="book_token" value="{{user}}">
+            <input type="submit" class="btn-outline-sm page-scroll" value="Select Plan to begin" />
+            </form>
+        {% endif %}
+        <!--a class="btn-outline-sm page-scroll" href="{% url 'planSelection' %}">Select plan to begin</a-->
 
       </div>
 		</div>
