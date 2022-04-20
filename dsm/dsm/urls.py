@@ -17,8 +17,9 @@ from django.contrib import admin
 from django.urls import path, include
 from django.http import HttpResponse
 
-
+#app_name="accounts"
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #path('', include(('accounts.urls', 'accounts'), namespace='accounts')),
     path('', include('accounts.urls')),
 ]
