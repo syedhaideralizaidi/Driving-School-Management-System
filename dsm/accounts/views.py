@@ -163,8 +163,15 @@ def planSelection(request):
 
     if request.method=='POST':
         temp=request.user
-        temp.plan='PLan1'
+        if 'plan1' in request.POST:
+            temp.plan='PLan1'
+        elif 'plan2' in request.POST:
+            temp.plan='Plan2'
+        elif 'plan3' in request.POST:
+            temp.plan='Plan3'
+        temp.isRegistered=True
         temp.save()
+        return redirect('MainPage')
     #myuser=request.POST.get("user","")
     #print(getCurrentUserName(request))
     #print(request.POST.get(name))

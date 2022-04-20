@@ -25,12 +25,23 @@
           <hr>
         <!--h3>Select a plan to begin learning </h3-->
         {% if user.isRegistered is False%}
-          <form action="{% url 'planSelection' %}" method="post">
+            <a class="btn-outline-sm page-scroll" href="{% url 'planSelection' %}">Select plan to Begin</a>
+          <!--form action="{% url 'planSelection' %}" method="get">
             {% csrf_token %}
             {{ form }}
             <input type="hidden" name="book_token" value="{{user}}">
             <input type="submit" class="btn-outline-sm page-scroll" value="Select Plan to begin" />
-            </form>
+            </form-->
+        {% else %}
+            {% if user.plan == "PLan1" %}
+                {% include 'accounts/basic.html' %}
+            {% endif %}
+            {% if user.plan == "Plan2" %}
+                {% include 'accounts/standard.html' %}
+            {% endif %}
+            {% if user.plan == "Plan3" %}
+                {% include 'accounts/premium.html' %}
+            {% endif %}
         {% endif %}
         <!--a class="btn-outline-sm page-scroll" href="{% url 'planSelection' %}">Select plan to begin</a-->
 

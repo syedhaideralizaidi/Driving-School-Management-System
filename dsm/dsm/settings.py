@@ -26,10 +26,12 @@ SECRET_KEY = 'django-insecure-_#vna68-=uc5@)42!mc$1jt@05cb*=wyto37ugc61z_vd^atb*
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+SESSION_COOKIE_SECURE = False
 
+CSRF_COOKIE_SECURE = False
 ALLOWED_HOSTS = []
 
-
+SESSION_ENGINE = "django.contrib.sessions.backends.db"
 # Application definition
 
 INSTALLED_APPS = [
@@ -67,6 +69,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
             ],
         },
     },
@@ -103,7 +106,12 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'accounts.backend.AuthBackend',
+    'accounts.backend.Teacher_AuthBackend',
+    #'django.contrib.auth.backends.ModelBackend',
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
@@ -127,7 +135,7 @@ STATICFILES_DIRS=[
 ]
 
 MEDIA_URL = '/images/'
-
+LOGIN_URL = 'login'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
