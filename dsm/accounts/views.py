@@ -169,6 +169,17 @@ def planSelection(request):
             temp.plan='Plan2'
         elif 'plan3' in request.POST:
             temp.plan='Plan3'
+        TData=Teacher.objects.all()
+        if TData:
+            for field in TData:
+                if field.studentName is None:
+                    #tempTeacher=Teacher.objects.get(field.name)
+                    temp.myteacher = field
+                    field.studentName = temp
+                    field.save()
+                    break
+
+
         temp.isRegistered=True
         temp.save()
         return redirect('MainPage')
@@ -178,6 +189,12 @@ def planSelection(request):
     return render(request, 'accounts/planSelection.html',{'userprofile':request.user})
     #else:
      #   return render(request, 'accounts/MainPage.html', {})
+
+def TeacherInfo(request):
+    if request.method == 'POST':
+        return redirect('MainPage')
+    return render(request, 'accounts/myTeacherInfo.html', {'userprofile': request.user})
+
 
 def dashboard(request):
     #return redirect('login')

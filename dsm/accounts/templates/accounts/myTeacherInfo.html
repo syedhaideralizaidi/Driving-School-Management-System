@@ -1,0 +1,72 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+  	<title>Sidebar 02</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="{% static '/css/style.css' %}">
+          <link href="{% static '/css/bootstrap.css' %}" rel="stylesheet">
+
+  </head>
+<body>
+
+{% include 'accounts/side_navbar.html' %}
+
+
+     <div id="content" class="p-4 p-md-5 pt-5">
+              <h2 class="mb-4">Teacher info</h2>
+
+              <div class="card mb-3 p-4 p-md-5 pt-5">
+
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{user.myteacher.name}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Email</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{user.myteacher.email}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Phone</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{user.myteacher.phone}}
+                    </div>
+
+                  <hr>
+
+
+
+
+                </div>
+                
+      </div>
+      </div>
+
+
+
+
+
+
+<script src="{% static '/js/jquery.min.js' %}"></script>
+    <script src="{% static '/js/popper.js' %}"></script>
+    <script src="{% static '/js/bootstrap.min.js'%}"></script>
+    <script src="{%static '/js/main.js'%}"></script>
+</body>
+</html>
