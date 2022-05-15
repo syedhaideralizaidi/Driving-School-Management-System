@@ -80,7 +80,7 @@ def login(request,backend='accounts.backend.AuthBackend'):
                 return redirect('login')
 
 
-    #return render(request, 'accounts/login.html')
+     #return render(request, 'accounts/login.html')
 
         elif 'instructor' in request.POST:
             form = Teacher_AuthBackend.authenticate1(request, username=username, password=password)
