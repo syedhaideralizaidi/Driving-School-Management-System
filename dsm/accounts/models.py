@@ -13,6 +13,7 @@ class Teacher(models.Model):
     password_en = models.CharField(max_length=200, null=True)
     date_created = models.DateTimeField(auto_now_add=True)
     last_login = models.DateTimeField(auto_now_add=True)
+    studentName = models.ForeignKey('customer', on_delete=models.CASCADE, related_name='teachers', blank=True,null=True)
 
     def __str__(self):
         return self.name
